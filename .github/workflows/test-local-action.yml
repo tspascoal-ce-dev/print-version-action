@@ -1,0 +1,22 @@
+name: Test Composite Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: node:22-alpine
+
+    steps:
+      - name: Run local action
+        uses: tspascoal-ce-dev/print-version-action@main
+
+  test-no-container:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Run local action
+        uses: tspascoal-ce-dev/print-version-action@main

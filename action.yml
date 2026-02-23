@@ -1,0 +1,15 @@
+name: Print Version
+
+description: Print the contents of version.txt
+
+runs:
+  using: composite
+  steps:
+    - name: Print version file
+      shell: sh
+      run: |
+        echo "Contents of version.txt from ${{ github.action_path }}"
+        ls -al "${{ github.action_path }}" || true
+        echo "$GITHUB_ACTION_PATH"
+        ls -al "$GITHUB_ACTION_PATH" || true        
+        cat "$GITHUB_ACTION_PATH/version.txt"
